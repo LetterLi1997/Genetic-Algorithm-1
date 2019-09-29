@@ -10,8 +10,8 @@ global x2lower_bound;        % x2's minimum
 population_size = 1000;      % group size
 chromosome_size = 36;       % length of gene
 x1chromosome_size = 18;     % the chromosome combine x1 and x2
-generation_size = 100;       % max generation times
-cross_rate = 0.6;            % mutation probablity
+generation_size = 500;       % max generation times
+cross_rate = 0.8;            % mutation probablity
 mutate_rate = 0.2;           % mutation probablity
 
 x1upper_bound = 10.0000;       % x1's maximum

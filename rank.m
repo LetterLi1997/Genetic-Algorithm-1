@@ -52,8 +52,8 @@ end
 fitness_average(G) = fitness_sum(population_size)/population_size;
 
 
-% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度最小)
-if fitness_value(1) < best_fitness
+% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum)
+if fitness_value(1) > best_fitness
     best_fitness = fitness_value(1);
     best_generation = G;
     for j=1:chromosome_size
