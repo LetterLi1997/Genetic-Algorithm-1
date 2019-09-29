@@ -1,15 +1,15 @@
-%¶Ô²»Í¬µÄ¸öÌå½øĞĞÆÀ¼ÛµÄÊÊÓ¦¶Èº¯Êı
-%population_size ÖÖÈº´óĞ¡
-%chromosome_size 20Î»µÄÈ¾É«Ìå³¤¶È
+%å¯¹ä¸åŒçš„ä¸ªä½“è¿›è¡Œè¯„ä»·çš„é€‚åº”åº¦å‡½æ•°
+%population_size ç§ç¾¤å¤§å°
+%chromosome_size 20ä½çš„æŸ“è‰²ä½“é•¿åº¦
 function fitness(population_size,chromosome_size,x1chromosome_size)
 global fitness_value;
 global population;
 
-global x1upper_bound;    %×Ô±äÁ¿È¡ÖµÉÏÏŞ
-global x1lower_bound;    %×Ô±äÁ¿È¡ÖµÏÂÏŞ
+global x1upper_bound;    %è‡ªå˜é‡å–å€¼ä¸Šé™
+global x1lower_bound;    %è‡ªå˜é‡å–å€¼ä¸‹é™
 
-global x2upper_bound;    %×Ô±äÁ¿È¡ÖµÉÏÏŞ
-global x2lower_bound;    %×Ô±äÁ¿È¡ÖµÏÂÏŞ
+global x2upper_bound;    %è‡ªå˜é‡å–å€¼ä¸Šé™
+global x2lower_bound;    %è‡ªå˜é‡å–å€¼ä¸‹é™
 
 for i = 1:population_size
     fitness_value(i) = 0;
@@ -20,7 +20,7 @@ end
 for i = 1:population_size
     for j = 1:x1chromosome_size
         if population(i,j) == 1
-            x1(i) = x1(i) + 2^(j-1);        %È¾É«Ìå´®ÓëÊµ¼Ê×Ô±äÁ¿µÄ¶ş½øÖÆÊÇÏà·´µÄ
+            x1(i) = x1(i) + 2^(j-1);        %æŸ“è‰²ä½“ä¸²ä¸å®é™…è‡ªå˜é‡çš„äºŒè¿›åˆ¶æ˜¯ç›¸åçš„
         end 
     end
     for j = x1chromosome_size+1:chromosome_size
@@ -29,8 +29,8 @@ for i = 1:population_size
         end
     end
 
-    x1(i) = x1lower_bound + x1(i)*(x1upper_bound-x1lower_bound)/(2^x1chromosome_size-1); % ½âÂë
-    x2(i) = x2lower_bound + x2(i)*(x2upper_bound-x2lower_bound)/(2^x1chromosome_size-1); % ½âÂë    
+    x1(i) = x1lower_bound + x1(i)*(x1upper_bound-x1lower_bound)/(2^x1chromosome_size-1); % è§£ç 
+    x2(i) = x2lower_bound + x2(i)*(x2upper_bound-x2lower_bound)/(2^x1chromosome_size-1); % è§£ç     
 
     fitness_value(i) = DeJongF2(x1(i),x2(i));
 end

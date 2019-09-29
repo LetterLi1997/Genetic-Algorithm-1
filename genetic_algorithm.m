@@ -1,36 +1,36 @@
 % Genetic Algorithm for Functional Minium Problem
-% ²âÊÔº¯Êı£ºDeJongF2; Camel; SchafferF6; Shubert
+% æµ‹è¯•å‡½æ•°ï¼šDeJongF2; Camel; SchafferF6; Shubert
 % Created by jiahuiShe @2018/5/23
 
-% population_size: ÊäÈëÖÖÈº´óĞ¡
-% chromosome_size: ÊäÈëÈ¾É«Ìå³¤¶È
-% generation_size: ÊäÈëµü´ú´ÎÊı
-% cross_rate: ÊäÈë½»²æ¸ÅÂÊ
-% mutate_rate: ÊäÈë±äÒì¸ÅÂÊ
-% elitism: ÊäÈëÊÇ·ñ¾«Ó¢Ñ¡Ôñ
-% m: Êä³ö×î¼Ñ¸öÌå
-% n: Êä³ö×î¼ÑÊÊÓ¦¶È
-% p: Êä³ö×î¼Ñ¸öÌå³öÏÖµü´ú´ÎÊı
-% q: Êä³ö×î¼Ñ¸öÌå×Ô±äÁ¿Öµ
+% population_size: è¾“å…¥ç§ç¾¤å¤§å°
+% chromosome_size: è¾“å…¥æŸ“è‰²ä½“é•¿åº¦
+% generation_size: è¾“å…¥è¿­ä»£æ¬¡æ•°
+% cross_rate: è¾“å…¥äº¤å‰æ¦‚ç‡
+% mutate_rate: è¾“å…¥å˜å¼‚æ¦‚ç‡
+% elitism: è¾“å…¥æ˜¯å¦ç²¾è‹±é€‰æ‹©
+% m: è¾“å‡ºæœ€ä½³ä¸ªä½“
+% n: è¾“å‡ºæœ€ä½³é€‚åº”åº¦
+% p: è¾“å‡ºæœ€ä½³ä¸ªä½“å‡ºç°è¿­ä»£æ¬¡æ•°
+% q: è¾“å‡ºæœ€ä½³ä¸ªä½“è‡ªå˜é‡å€¼
 function [m,n,p,x1,x2] = genetic_algorithm(x1chromosome_size,population_size, chromosome_size, generation_size, cross_rate, mutate_rate)
 
-global G ;                    %µ±Ç°µü´ú´ÎÊı
-global fitness_value;         %µ±Ç°´úÊÊÓ¦¶È¾ØÕó
-global best_fitness;          %Àú´ú×î¼ÑÊÊÓ¦Öµ
-global fitness_average;       %Àú´úÆ½¾ùÊÊÓ¦Öµ¾ØÕó
-global best_individual;       %Àú´ú×î¼Ñ¸öÌå
-global best_generation;       %×î¼Ñ¸öÌå³öÏÖ´ú
+global G ;                    %å½“å‰è¿­ä»£æ¬¡æ•°
+global fitness_value;         %å½“å‰ä»£é€‚åº”åº¦çŸ©é˜µ
+global best_fitness;          %å†ä»£æœ€ä½³é€‚åº”å€¼
+global fitness_average;       %å†ä»£å¹³å‡é€‚åº”å€¼çŸ©é˜µ
+global best_individual;       %å†ä»£æœ€ä½³ä¸ªä½“
+global best_generation;       %æœ€ä½³ä¸ªä½“å‡ºç°ä»£
 
-global x1upper_bound;         %×Ô±äÁ¿x1È¡ÖµÉÏÏŞ
-global x1lower_bound;         %×Ô±äÁ¿x1È¡ÖµÏÂÏŞ
+global x1upper_bound;         %è‡ªå˜é‡x1å–å€¼ä¸Šé™
+global x1lower_bound;         %è‡ªå˜é‡x1å–å€¼ä¸‹é™
 
-global x2upper_bound;    %×Ô±äÁ¿x2È¡ÖµÉÏÏŞ
-global x2lower_bound;    %×Ô±äÁ¿x2È¡ÖµÏÂÏŞ
+global x2upper_bound;    %è‡ªå˜é‡x2å–å€¼ä¸Šé™
+global x2lower_bound;    %è‡ªå˜é‡x2å–å€¼ä¸‹é™
 global population;
 
 disp [jhS genetic algorithm]
 
-fitness_average = zeros(generation_size); % ½« generation_size*1 µÄÁã¾ØÕó¸³¸ø fitness_average
+fitness_average = zeros(generation_size); % å°† generation_size*1 çš„é›¶çŸ©é˜µèµ‹ç»™ fitness_average
 fitness_value(population_size) = 0;
 best_fitness = 0;
 best_generation = 0;
@@ -43,11 +43,11 @@ end
 
 
 for G=1:generation_size      
-    fitness(population_size, chromosome_size,x1chromosome_size);              % ¼ÆËãÊÊÓ¦¶È 
-    rank(population_size, chromosome_size);                 % ¶Ô¸öÌå°´ÊÊÓ¦¶È´óĞ¡½øĞĞÅÅĞò
-    selection(population_size, chromosome_size);            % Ñ¡Ôñ²Ù×÷
-    crossover(population_size, chromosome_size, cross_rate);% ½»²æ²Ù×÷
-    mutation(population_size, chromosome_size, mutate_rate);% ±äÒì²Ù×÷
+    fitness(population_size, chromosome_size,x1chromosome_size);              % è®¡ç®—é€‚åº”åº¦ 
+    rank(population_size, chromosome_size);                 % å¯¹ä¸ªä½“æŒ‰é€‚åº”åº¦å¤§å°è¿›è¡Œæ’åº
+    selection(population_size, chromosome_size);            % é€‰æ‹©æ“ä½œ
+    crossover(population_size, chromosome_size, cross_rate);% äº¤å‰æ“ä½œ
+    mutation(population_size, chromosome_size, mutate_rate);% å˜å¼‚æ“ä½œ
 
     G = G+1;
     fprintf('%d\n',G);
@@ -58,27 +58,27 @@ for G=1:generation_size
 end
 
 
-m = best_individual;    % »ñµÃ×î¼Ñ¸öÌå
-n = best_fitness;       % »ñµÃ×î¼ÑÊÊÓ¦¶È
-p = best_generation;    % »ñµÃ×î¼Ñ¸öÌå³öÏÖÊ±µÄµü´ú´ÎÊı
+m = best_individual;    % è·å¾—æœ€ä½³ä¸ªä½“
+n = best_fitness;       % è·å¾—æœ€ä½³é€‚åº”åº¦
+p = best_generation;    % è·å¾—æœ€ä½³ä¸ªä½“å‡ºç°æ—¶çš„è¿­ä»£æ¬¡æ•°
 
-% »ñµÃ×î¼Ñ¸öÌå±äÁ¿Öµ£¬¶Ô²»Í¬µÄÓÅ»¯Ä¿±ê£¬ÕâÀïĞèÒªĞŞ¸Ä
+% è·å¾—æœ€ä½³ä¸ªä½“å˜é‡å€¼ï¼Œå¯¹ä¸åŒçš„ä¼˜åŒ–ç›®æ ‡ï¼Œè¿™é‡Œéœ€è¦ä¿®æ”¹
 x1 = 0;
 x2 = 0;
 for j=1:x1chromosome_size
     if best_individual(j) == 1
-            x1 = x1+2^(j-1);  % ×î¼Ñ¸öÌå±äÁ¿¶ş½øÖÆ×ªÊ®½øÖÆ
+            x1 = x1+2^(j-1);  % æœ€ä½³ä¸ªä½“å˜é‡äºŒè¿›åˆ¶è½¬åè¿›åˆ¶
     end 
 end
 
 for j=x1chromosome_size+1:chromosome_size
     if best_individual(j) == 1
-            x2 = x2+2^(j-x1chromosome_size-1);  % ×î¼Ñ¸öÌå±äÁ¿¶ş½øÖÆ×ªÊ®½øÖÆ
+            x2 = x2+2^(j-x1chromosome_size-1);  % æœ€ä½³ä¸ªä½“å˜é‡äºŒè¿›åˆ¶è½¬åè¿›åˆ¶
     end 
 end
 
-x1 = x1lower_bound + x1*(x1upper_bound-x1lower_bound)/(2^x1chromosome_size-1); % ½âÂë
-x2 = x2lower_bound + x2*(x2upper_bound-x2lower_bound)/(2^x1chromosome_size-1); % ½âÂë    
+x1 = x1lower_bound + x1*(x1upper_bound-x1lower_bound)/(2^x1chromosome_size-1); % è§£ç 
+x2 = x2lower_bound + x2*(x2upper_bound-x2lower_bound)/(2^x1chromosome_size-1); % è§£ç     
 
 clear i;
 clear j;
