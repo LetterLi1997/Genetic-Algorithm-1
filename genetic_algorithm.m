@@ -2,7 +2,7 @@
 % 测试函数：DeJongF2; Camel; SchafferF6; Shubert
 % Created by jiahuiShe @2018/5/23
 
-% population_size: 输入种群大小
+% population_size: the number of group
 % chromosome_size: 输入染色体长度
 % generation_size: 输入迭代次数
 % cross_rate: 输入交叉概率
