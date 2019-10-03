@@ -1,22 +1,22 @@
 function selection(population_size,chromosome_size)
-global population;      % Ç°´úÖÖÈº
-global population_new;  % ĞÂÒ»´úÖÖÈº
+global population;      % å‰ä»£ç§ç¾¤
+global population_new;  % æ–°ä¸€ä»£ç§ç¾¤
 
 posibility_table = zeros(population_size);
 for i = 1:population_size
     posibility_table(i) = (population_size-i)/population_size;
 end
 
-%ÂÖÅÌ¶ÄÑ¡Ôñ·½·¨
-%Ñ¡Ôñ¸ÅÂÊºÍ¸öÌåµÄÅÅÃûÓĞ¹Ø£¬Èô¸öÌåµÄÅÅÃûÊÇi£¬¹²ÓĞN¸ö¸öÌå£¬Ôò±»Ñ¡ÖĞµÄ¸ÅÂÊÊÇ(N-i)/N
+%è½®ç›˜èµŒé€‰æ‹©æ–¹æ³•
+%é€‰æ‹©æ¦‚ç‡å’Œä¸ªä½“çš„æ’åæœ‰å…³ï¼Œè‹¥ä¸ªä½“çš„æ’åæ˜¯iï¼Œå…±æœ‰Nä¸ªä¸ªä½“ï¼Œåˆ™è¢«é€‰ä¸­çš„æ¦‚ç‡æ˜¯(N-i)/N
 for i=1:population_size
-    r = rand;  % Éú³ÉÒ»¸öËæ»úÊı£¬ÔÚ[0,1]Ö®¼ä
+    r = rand;  % ç”Ÿæˆä¸€ä¸ªéšæœºæ•°ï¼Œåœ¨[0,1]ä¹‹é—´
     first = 1;
     last = population_size;
     mid = round((last+first)/2);
     idx = -1;
     
-    % ÅÅÖĞ·¨Ñ¡Ôñ¸öÌå
+    % æ’ä¸­æ³•é€‰æ‹©ä¸ªä½“
     while (first <= last) && (idx == -1) 
         if r < posibility_table(mid)
             first = mid;
@@ -33,7 +33,7 @@ for i=1:population_size
         end
     end
    
-   % ²úÉúĞÂÒ»´ú¸öÌå
+   % äº§ç”Ÿæ–°ä¸€ä»£ä¸ªä½“
    for j=1:chromosome_size
         population_new(i,j) = population(idx,j);
    end
