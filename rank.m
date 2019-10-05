@@ -51,8 +51,8 @@ end
 
 fitness_average(G) = fitness_sum(population_size)/population_size;
 
-
-% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum)
+% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum) '
+% fitness_value is the maximum of ever generation
 if fitness_value(1) > best_fitness
     best_fitness = fitness_value(1);
     best_generation = G;
@@ -60,7 +60,6 @@ if fitness_value(1) > best_fitness
         best_individual(j) = population(1,j);
     end
 end
-
 
 clear i;
 clear j;

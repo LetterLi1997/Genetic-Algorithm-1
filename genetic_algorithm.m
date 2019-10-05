@@ -17,9 +17,11 @@ function [m,n,p,x1,x2] = genetic_algorithm(x1chromosome_size,population_size, ch
 global G ;                    %当前迭代次数
 global fitness_value;         %当前代适应度矩阵
 global best_fitness;          %历代最佳适应值
+global best_fitness_group;
 global fitness_average;       %历代平均适应值矩阵
 global best_individual;       %历代最佳个体
 global best_generation;       %最佳个体出现代
+global every_fitness;
 
 global x1upper_bound;         %自变量x1取值上限
 global x1lower_bound;         %自变量x1取值下限
@@ -49,12 +51,14 @@ for G=1:generation_size
     crossover(population_size, chromosome_size, cross_rate);% 交叉操作
     mutation(population_size, chromosome_size, mutate_rate);% 变异操作
 
+    every_fitness(G) = fitness_value(1)
+    best_fitness_group(G) = best_fitness
     G = G+1;
     fprintf('%d\n',G);
     fprintf('best result is %f\n',best_fitness);
-    if(abs(best_fitness)<0.0001)
-        break;
-    end
+%     if(abs(best_fitness)<0.0001)
+%         break;
+%     end
 end
 
 
