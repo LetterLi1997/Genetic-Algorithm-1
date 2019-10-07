@@ -32,7 +32,7 @@ for i = 1:population_size
     x1(i) = x1lower_bound + x1(i)*(x1upper_bound-x1lower_bound)/(2^x1chromosome_size-1); % decode
     x2(i) = x2lower_bound + x2(i)*(x2upper_bound-x2lower_bound)/(2^x1chromosome_size-1); % decode 
 
-    fitness_value(i) = F1(x1(i),x2(i));
+    fitness_value(i) = F4(x1(i),x2(i));
 end
 
 clear i;
