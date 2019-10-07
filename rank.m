@@ -18,53 +18,53 @@ end
 
 temp_chromosome(chromosome_size) = 0;
 
-% %冒泡排序
-% % the maximum is on the top
-% for i = 1:population_size
-%     max_index = i;
-%     for j = i+1:population_size
-%         if fitness_value(j) > fitness_value(max_index)
-%             max_index = j;
-%         end
-%     end  
-%     
-%     %交换max_index行和第i行的染色体和fitness_value    
-%     if max_index ~= i
-%         temp_fitness_value = fitness_value(max_index);
-%         fitness_value(max_index) = fitness_value(i);
-%         fitness_value(i) = temp_fitness_value;
-%         
-%         for k = 1:chromosome_size
-%             temp_chromosome(k) = population(max_index,k);
-%             population(max_index,k) = population(i,k);
-%             population(i,k) = temp_chromosome(k);        
-%         end    
-%     end    
-% end
-
 %冒泡排序
-%遍历最小升到上面
+% the maximum is on the top
 for i = 1:population_size
-    min_index = i;
+    max_index = i;
     for j = i+1:population_size
-        if fitness_value(j) < fitness_value(min_index)
-            min_index = j;
+        if fitness_value(j) > fitness_value(max_index)
+            max_index = j;
         end
     end  
     
-    %交换min_index行和第i行的染色体和fitness_value    
-    if min_index ~= i
-        temp_fitness_value = fitness_value(min_index);
-        fitness_value(min_index) = fitness_value(i);
+    %交换max_index行和第i行的染色体和fitness_value    
+    if max_index ~= i
+        temp_fitness_value = fitness_value(max_index);
+        fitness_value(max_index) = fitness_value(i);
         fitness_value(i) = temp_fitness_value;
         
         for k = 1:chromosome_size
-            temp_chromosome(k) = population(min_index,k);
-            population(min_index,k) = population(i,k);
+            temp_chromosome(k) = population(max_index,k);
+            population(max_index,k) = population(i,k);
             population(i,k) = temp_chromosome(k);        
         end    
     end    
 end
+
+%冒泡排序
+%遍历最小升到上面
+% for i = 1:population_size
+%     min_index = i;
+%     for j = i+1:population_size
+%         if fitness_value(j) < fitness_value(min_index)
+%             min_index = j;
+%         end
+%     end  
+%     
+%     %交换min_index行和第i行的染色体和fitness_value    
+%     if min_index ~= i
+%         temp_fitness_value = fitness_value(min_index);
+%         fitness_value(min_index) = fitness_value(i);
+%         fitness_value(i) = temp_fitness_value;
+%         
+%         for k = 1:chromosome_size
+%             temp_chromosome(k) = population(min_index,k);
+%             population(min_index,k) = population(i,k);
+%             population(i,k) = temp_chromosome(k);        
+%         end    
+%     end    
+% end
 
 for i = 1:population_size
     if i == 1
@@ -76,25 +76,25 @@ end
 
 fitness_average(G) = fitness_sum(population_size)/population_size;
 
-% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum) '
+% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum)
 % fitness_value is the maximum of ever generation
-% if fitness_value(1) > best_fitness
-%     best_fitness = fitness_value(1);
-%     best_generation = G;
-%     for j=1:chromosome_size
-%         best_individual(j) = population(1,j);
-%     end
-% end
-
-% 更新最大适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum) '
-% fitness_value is the maximum of ever generation
-if fitness_value(1) < best_fitness
+if fitness_value(1) > best_fitness
     best_fitness = fitness_value(1);
     best_generation = G;
     for j=1:chromosome_size
         best_individual(j) = population(1,j);
     end
 end
+
+% 更新最xiao适应度和对应的迭代次数，保存最佳个体(最佳个体的适应度 maximum) '
+% fitness_value is the maximum of ever generation
+% if fitness_value(1) < best_fitness
+%     best_fitness = fitness_value(1);
+%     best_generation = G;
+%     for j=1:chromosome_size
+%         best_individual(j) = population(1,j);
+%     end
+% end
 
 clear i;
 clear j;

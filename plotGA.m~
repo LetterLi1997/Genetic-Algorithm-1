@@ -2,7 +2,7 @@
 % generation_size: 迭代次数
 
 function plotGA(generation_size)
-% global fitness_average;
+global fitness_average;
 global every_fitness;
 global best_fitness_group;
 
@@ -14,11 +14,12 @@ z = best_fitness_group;
 figure(1)
 subplot(1,2,1);
 plot(x,y); % !fuck, I should write the plot before axis!! Instead, you will see an incomplete graph
-axis([0 generation_size 0.2 1.2]); % should after the ploy command
+% axis([0 generation_size 0.2 1.2]); % should after the ploy command
 ylabel('每次进化最佳适应度')
 xlabel('进化次数')
+
 subplot(1,2,2);
 plot(x,z); % !fuck, I should write the plot before axis!! Instead, you will see an incomplete graph
-axis([0 generation_size 0.2 1.2]); % should after the ploy command
-ylabel('每次进化最佳适应度')
+set(gca,'XTick',[0:30:generation_size]); % should after the ploy command
+ylabel('最佳适应度')
 xlabel('进化次数')

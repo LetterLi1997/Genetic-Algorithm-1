@@ -32,7 +32,7 @@ global population;
 
 disp [jhS genetic algorithm]
 
-fitness_average = zeros(generation_size); % 将 generation_size*1 的零矩阵赋给 fitness_average
+fitness_average = zeros(generation_size,1); % 将 generation_size*1 的零矩阵赋给 fitness_average
 fitness_value(population_size) = 0;
 best_fitness = 0;
 best_generation = 0;
